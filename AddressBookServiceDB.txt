@@ -1,2 +1,14 @@
 	Welcome to AddressBookServiceDB
 **************************************************************************
+	******************#Uc1**********************
+
+1.  show databases;				#show database before create
+
+2. create database addressbookserviceDB;	#create database addressbookserviceDB
+
+3. mysql> show databases;			#show database after creating
+
+4. use addressbookserviceDB;		#use particular database
+
+5. select database();			#view particular database
+
