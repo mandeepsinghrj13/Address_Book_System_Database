@@ -62,4 +62,13 @@
 
 1. select * from addressbook where city = 'sri ganganagar' and state = 'rajasthan';  	#retrivee data from city or state
 
+	********************#Uc7****************
+
+1. select state, count(first_name)from addressbook group by state;	#checking count of addressbook by city and state
+
+2. select city, count(first_name)from addressbook group by city;
+
+3. select count(first_name)from addressbook where state = 'rajasthan' and city = 'sri ganganagar';
+
+4. select first_name,count(first_name)from addressbook where state = 'rajasthan' and city = 'sri ganganagar';
 
