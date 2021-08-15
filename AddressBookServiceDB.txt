@@ -80,3 +80,14 @@
 2. select * from addressbook;
 
 3. select * from addressbook where city = 'sri ganganagar' order by first_name;		#Retrive data in ascending order
+
+	********************#Uc9****************
+
+1. alter table addressbook add addressbook_type varchar(130) after email;		#add addressbook_type in addressbook
+2. alter table addressbook add addressbook_name varchar(100) after addressbook_type;	#add addressbook_name in addressbook
+3. select * from addressbook;
+4. Describe addressbook;
+5. update addressbook set addressbook_type = 'firend', addressbook_name = 'firendbook' where first_name in ('mandeep','sukhmander'); #set type use name
+6. update addressbook set addressbook_type = 'family', addressbook_name = 'familybook' where first_name in ('Amandeep');	    #update
+7. update addressbook set addressbook_type = 'profession', addressbook_name = 'professionbook' where first_name in ('ram');	    #update
+8. select * from addressbook;
