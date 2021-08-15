@@ -58,4 +58,8 @@
 1. delete from addressbook where first_name  ='satnam';	#delete existing person
 2. select * from addressbook;
 
+	********************#Uc6****************
+
+1. select * from addressbook where city = 'sri ganganagar' and state = 'rajasthan';  	#retrivee data from city or state
+
 
