@@ -97,3 +97,10 @@
 2. update addressbook set addressbook_type ='friend' where first_name ='sukhmander';	#update firend to friend
 3. select count(first_name) from addressbook where addressbook_type = 'friend';		#count friend by first_name
 4. select count(first_name) from addressbook where addressbook_type = 'family';		#count family by first_name
+
+	********************#Uc11****************
+
+1. insert into addressbook (first_name, last_name, address, city, state, zip, phone_number, email, addressbook_type, addressbook_name) values
+    -> ('chandan','tiwary','ara','bhojpur','bihar',805001,9146677855,'tiwary.96@gmail.com','friend','friendbook'),
+    -> ('ravindra','sonawane','mumbai','mumbai','maharashtra',123654,1236547850,'ravindra@gmail.com','family','familybook');                                #add friend and family
+2. select * from addressbook; 												#view table
