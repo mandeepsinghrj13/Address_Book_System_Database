@@ -91,3 +91,9 @@
 6. update addressbook set addressbook_type = 'family', addressbook_name = 'familybook' where first_name in ('Amandeep');	    #update
 7. update addressbook set addressbook_type = 'profession', addressbook_name = 'professionbook' where first_name in ('ram');	    #update
 8. select * from addressbook;
+
+	********************#Uc10****************
+1. update addressbook set addressbook_type ='friend' where first_name ='mandeep';	#update firend to friend
+2. update addressbook set addressbook_type ='friend' where first_name ='sukhmander';	#update firend to friend
+3. select count(first_name) from addressbook where addressbook_type = 'friend';		#count friend by first_name
+4. select count(first_name) from addressbook where addressbook_type = 'family';		#count family by first_name
