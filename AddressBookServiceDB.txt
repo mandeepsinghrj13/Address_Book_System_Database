@@ -53,3 +53,9 @@
 
 3. select * from addressbook;						#view  table data
 
+	********************#Uc5****************
+
+1. delete from addressbook where first_name  ='satnam';	#delete existing person
+2. select * from addressbook;
+
+
