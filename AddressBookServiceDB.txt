@@ -72,3 +72,11 @@
 
 4. select first_name,count(first_name)from addressbook where state = 'rajasthan' and city = 'sri ganganagar';
 
+	********************#Uc8****************
+
+1.  insert into addressbook (first_name, last_name, address, city, state, zip, phone_number, email) values
+    -> ('Amandeep','singh','gurunagar','sri ganganagar','rajasthan',335001,9166677855,'singh.mr.1996@gmail.com');
+
+2. select * from addressbook;
+
+3. select * from addressbook where city = 'sri ganganagar' order by first_name;		#Retrive data in ascending order
