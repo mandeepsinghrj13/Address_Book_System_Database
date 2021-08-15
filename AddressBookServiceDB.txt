@@ -31,3 +31,15 @@
 
 2. describe addressbook;			#view table
 
+
+	********************#Uc3****************
+
+					#inserting values in table
+1.  insert into addressbook (first_name, last_name, address, city, state, zip, phone_number, email) values
+    -> ('mandeep','singh','gurunagar','sri ganganagar','rajasthan',335001,9166677855,'singh.mr.1996@gmail.com'),
+    -> ('sukhmander','singh','6z','sri ganganagar','rajasthan',335001,1234567899,'sukhmandersingh@gmail.com'),
+    -> ('ram','partap','ram colany','moga','punjab',335002,1234567890,'lakhvindersingh@gmail.com'),
+    -> ('satnam','singh','guru colany','moga','punjab',335002,1234567889,'satnamsingh@gmail.com');
+
+2. select * from addressbook;			#view values in table
+
