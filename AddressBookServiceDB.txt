@@ -12,3 +12,22 @@
 
 5. select database();			#view particular database
 
+
+	*******************#Uc2*******************
+
+1.   create table addressbook					#Creating a table
+    -> (
+    -> id               INT unsigned NOT NULL AUTO_INCREMENT,	#Unique ID for the record
+    -> first_name       VARCHAR(30) NOT NULL,			#FirstName of AddressBook
+    -> last_name        VARCHAR(30) NOT NULL,			#LastName of AddressBook
+    -> address          VARCHAR(130) NOT NULL,			#Address of AddressBook
+    -> city             VARCHAR(30) NOT NULL,			#City of AddressBook
+    -> state            VARCHAR(30) NOT NULL,			#state of AddressBook
+    -> zip              INT(6) NOT NULL,				#zip of AddressBook
+    -> phone_number     BIGINT NOT NULL,			#phonenumber of AddressBook
+    -> email            VARCHAR(50) NOT NULL,			#email of AddressBook
+    -> PRIMARY KEY(id)					#ID is primary key
+    -> );
+
+2. describe addressbook;			#view table
+
