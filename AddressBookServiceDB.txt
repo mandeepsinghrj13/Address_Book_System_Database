@@ -43,3 +43,13 @@
 
 2. select * from addressbook;			#view values in table
 
+
+	********************#Uc4****************
+
+
+1. update addressbook set city = 'jaipur' where first_name = 'sukhmander';	#editing person details
+
+2. update addressbook set address = 'near bus stand' where first_name = 'ram';	#editing person details	
+
+3. select * from addressbook;						#view  table data
+
