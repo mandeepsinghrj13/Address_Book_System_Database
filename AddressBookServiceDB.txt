@@ -103,4 +103,147 @@
 1. insert into addressbook (first_name, last_name, address, city, state, zip, phone_number, email, addressbook_type, addressbook_name) values
     -> ('chandan','tiwary','ara','bhojpur','bihar',805001,9146677855,'tiwary.96@gmail.com','friend','friendbook'),
     -> ('ravindra','sonawane','mumbai','mumbai','maharashtra',123654,1236547850,'ravindra@gmail.com','family','familybook');                                #add friend and family
-2. select * from addressbook; 												#view table
+2. select * from addressbook; 							#view table
+
+3. select * from addressbook;
++----+------------+-----------+----------------+----------------+-------------+--------+--------------+---------------------------+------------------+------------------+
+| id | first_name | last_name | address        | city           | state       | zip    | phone_number | email                     | addressbook_type | addressbook_name |
++----+------------+-----------+----------------+----------------+-------------+--------+--------------+---------------------------+------------------+------------------+
+|  1 | mandeep    | singh     | gurunagar      | sri ganganagar | rajasthan   | 335001 |   9166677855 | singh.mr.1996@gmail.com   | friend           | friendbook       |
+|  2 | sukhmander | singh     | 6z             | jaipur         | rajasthan   | 335001 |   1234567899 | sukhmandersingh@gmail.com | friend           | friendbook       |
+|  3 | ram        | partap    | near bus stand | moga           | punjab      | 335002 |   1234567890 | lakhvindersingh@gmail.com | profession       | professionbook   |
+|  5 | Amandeep   | singh     | gurunagar      | sri ganganagar | rajasthan   | 335001 |   9166677855 | singh.mr.1996@gmail.com   | family           | familybook       |
+|  6 | chandan    | tiwary    | ara            | bhojpur        | bihar       | 805001 |   9146677855 | tiwary.96@gmail.com       | friend           | friendbook       |
+|  7 | ravindra   | sonawane  | mumbai         | mumbai         | maharashtra | 123654 |   1236547850 | ravindra@gmail.com        | family           | familybook       |
++----+------------+-----------+----------------+----------------+-------------+--------+--------------+---------------------------+------------------+------------------+
+6 rows in set (0.00 sec)
+
+	********************#Uc12****************
+#Draw the ER Diagram for Address Book Service DB
+
+1. create table person_contact
+   -> (
+   -> first_name       varchar(30) NOT NULL,
+   -> last_name        varchar(30) NOT NULL,
+   -> address          varchar(130) NOT NULL,
+   -> phone_number     BIGINT NOT NULL,
+   -> email            varchar(50),
+   -> primary key      (first_name)
+   -> );
+   Query OK, 0 rows affected (2.90 sec)
+2.  describe person_contact;
+	+--------------+--------------+------+-----+---------+-------+
+	| Field        | Type         | Null | Key | Default | Extra |
+	+--------------+--------------+------+-----+---------+-------+
+	| first_name   | varchar(30)  | NO   | PRI | NULL    |       |
+	| last_name    | varchar(30)  | NO   |     | NULL    |       |
+	| address      | varchar(130) | NO   |     | NULL    |       |
+	| phone_number | bigint       | NO   |     | NULL    |       |
+	| email        | varchar(50)  | YES  |     | NULL    |       |
+	+--------------+--------------+------+-----+---------+-------+
+	5 rows in set (0.14 sec)
+
+3.  create table person_address
+    -> (
+    -> zip      INT(6) NOT NULL,
+    -> city     varchar(30) NOT NULL,
+    -> state    varchar(30) NOT NULL,
+    -> primary key (zip)
+    -> );
+    Query OK, 0 rows affected, 1 warning (0.68 sec)
+
+4. describe person_address;
+	+-------+-------------+------+-----+---------+-------+
+	| Field | Type        | Null | Key | Default | Extra |
+	+-------+-------------+------+-----+---------+-------+
+	| zip   | int         | NO   | PRI | NULL    |       |
+	| city  | varchar(30) | NO   |     | NULL    |       |
+	| state | varchar(30) | NO   |     | NULL    |       |
+	+-------+-------------+------+-----+---------+-------+
+	3 rows in set (0.24 sec)
+
+5.  create table person_contact_address
+    -> (
+    -> first_name       varchar(30) NOT NULL,
+    -> zip              INT(6) NOT NULL,
+    -> foreign key(first_name) references person_contact(first_name),
+    -> foreign key(zip) references person_address(zip)
+    -> );
+   Query OK, 0 rows affected, 1 warning (3.05 sec)
+
+6. desc person_contact_address;
+	+------------+-------------+------+-----+---------+-------+
+	| Field      | Type        | Null | Key | Default | Extra |
+	+------------+-------------+------+-----+---------+-------+
+	| first_name | varchar(30) | NO   | MUL | NULL    |       |
+	| zip        | int         | NO   | MUL | NULL    |       |
+	+------------+-------------+------+-----+---------+-------+
+	2 rows in set (0.13 sec)
+
+7. show tables;
+	+--------------------------------+
+	| Tables_in_addressbookservicedb |
+	+--------------------------------+
+	| addressbook                    |
+	| person_address                 |
+	| person_contact                 |
+	| person_contact_address         |
+	+--------------------------------+
+	4 rows in set (0.02 sec)
+
+8. insert into person_contact(first_name,last_name,address,phone_number,email) values
+    -> ('manpreet','singh','ram nagar',1478523695,'manpreet@gmail.com');
+    Query OK, 1 row affected (0.28 sec)
+
+9. insert into person_contact(first_name,last_name,address,phone_number,email) values
+    -> ('sandeep','tiwary','jam nagar',1547895462,'sandeep@gmail.com'),
+    -> ('pinku','jaat','pink city',1478457855,'pinku@gmail.com');
+   Query OK, 2 rows affected (0.15 sec)
+   Records: 2  Duplicates: 0  Warnings: 0
+
+10. select * from person_contact;
+	+------------+-----------+-----------+--------------+--------------------+
+	| first_name | last_name | address   | phone_number | email              |
+	+------------+-----------+-----------+--------------+--------------------+
+	| manpreet   | singh     | ram nagar |   1478523695 | manpreet@gmail.com |
+	| pinku      | jaat      | pink city |   1478457855 | pinku@gmail.com    |
+	| sandeep    | tiwary    | jam nagar |   1547895462 | sandeep@gmail.com  |
+	+------------+-----------+-----------+--------------+--------------------+
+	3 rows in set (0.00 sec)
+
+11. insert into person_address(zip,city,state) values
+    -> (123456,'moga','punjab'),
+    -> (122545,'jaipur','rajasthan'),
+    -> (321545,'jamnagar','gujarat');
+    Query OK, 3 rows affected (0.55 sec)
+    Records: 3  Duplicates: 0  Warnings: 0
+
+12. select * from person_address;
+	+--------+----------+-----------+
+	| zip    | city     | state     |
+	+--------+----------+-----------+
+	| 122545 | jaipur   | rajasthan |
+	| 123456 | moga     | punjab    |
+	| 321545 | jamnagar | gujarat   |
+	+--------+----------+-----------+
+	3 rows in set (0.00 sec)
+
+13.insert into person_contact_address(first_name,zip)values
+    -> ('manpreet',122545),
+    -> ('pinku',122545),
+    -> ('sandeep',321545);
+     Query OK, 3 rows affected (0.41 sec)
+   Records: 3  Duplicates: 0  Warnings: 0
+
+14. select * from person_contact_address;
+	+------------+--------+
+	| first_name | zip    |
+	+------------+--------+
+	| manpreet   | 122545 |
+	| pinku      | 122545 |
+	| sandeep    | 321545 |
+	+------------+--------+
+	3 rows in set (0.00 sec)
+
+
+
